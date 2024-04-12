@@ -1,25 +1,25 @@
-export * from "./Barcode";
-export * from "./Beacon";
-export * from "./Location";
-export * from "./Field";
-export * from "./NFC";
-export * from "./Semantics";
-export * from "./PassFields";
-export * from "./Personalize";
-export * from "./Certificates";
+export * from "./Barcode.js";
+export * from "./Beacon.js";
+export * from "./Location.js";
+export * from "./Field.js";
+export * from "./NFC.js";
+export * from "./Semantics.js";
+export * from "./PassFields.js";
+export * from "./Personalize.js";
+export * from "./Certificates.js";
 
 import Joi from "joi";
 import { Buffer } from "node:buffer";
 
-import { Barcode } from "./Barcode";
-import { Location } from "./Location";
-import { Beacon } from "./Beacon";
-import { NFC } from "./NFC";
-import { PassFields, TransitType } from "./PassFields";
-import { Semantics } from "./Semantics";
-import { CertificatesSchema } from "./Certificates";
+import { Barcode } from "./Barcode.js";
+import { Location } from "./Location.js";
+import { Beacon } from "./Beacon.js";
+import { NFC } from "./NFC.js";
+import { PassFields, TransitType } from "./PassFields.js";
+import { Semantics } from "./Semantics.js";
+import { CertificatesSchema } from "./Certificates.js";
 
-import * as Messages from "../messages";
+import * as Messages from "../messages.js";
 
 const RGB_COLOR_REGEX =
 	/rgb\(\s*(?:[01]?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\s*,\s*(?:[01]?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\s*,\s*(?:[01]?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\s*\)/;

@@ -1,11 +1,15 @@
 {
 	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es2018",
-		"esModuleInterop": true,
-		"newLine": "LF",
-		"importHelpers": true,
-		"useUnknownInCatchVariables": true
+		"outDir": "lib",
+		"strict": false,
+		"declaration": true,
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"downlevelIteration": true,
 	},
-	"exclude": ["node_modules/"]
+	"include": [
+		"src/**/*.ts"
+	],
+	"exclude": []
 }

@@ -1,13 +1,13 @@
 import { Stream } from "node:stream";
 import { Buffer } from "node:buffer";
-import FieldsArray from "./FieldsArray";
-import Bundle, { filesSymbol } from "./Bundle";
-import getModelFolderContents from "./getModelFolderContents";
-import * as Schemas from "./schemas";
-import * as Signature from "./Signature";
-import * as Strings from "./StringsUtils";
-import * as Utils from "./utils";
-import * as Messages from "./messages";
+import { FieldsArray } from "./FieldsArray.js";
+import { Bundle, filesSymbol } from "./Bundle.js";
+import getModelFolderContents from "./getModelFolderContents.js";
+import * as Schemas from "./schemas/index.js";
+import * as Signature from "./Signature.js";
+import * as Strings from "./StringsUtils.js";
+import * as Utils from "./utils.js";
+import * as Messages from "./messages.js";
 
 const propsSymbol = Symbol("props");
 const localizationSymbol = Symbol("pass.l10n");
@@ -28,7 +28,7 @@ const RegExps = {
 	PASS_ICON: /icon(?:@\d{1}x)?/,
 } as const;
 
-export default class PKPass extends Bundle {
+export class PKPass extends Bundle {
 	private [certificatesSymbol]: Schemas.CertificatesSchema;
 	private [propsSymbol]: Schemas.PassProps = {};
 	private [localizationSymbol]: {
@@ -90,8 +90,8 @@ export default class PKPass extends Bundle {
 				Messages.TEMPLATE.INVALID,
 			);
 
-			buffers = await getModelFolderContents(source.model);
-			certificates = source.certificates;
+			buffers = await getModelFolderContents((source as any).model);
+			certificates = (source as any).certificates;
 		}
 
 		return new PKPass(buffers, certificates, props);
@@ -146,7 +146,7 @@ export default class PKPass extends Bundle {
 
 			for (
 				let i = buffersEntries.length, buffer: [string, Buffer];
-				(buffer = buffersEntries[--i]);
+				(buffer = buffersEntries[--i] as [string, Buffer]);
 
 			) {
 				const [fileName, contentBuffer] = buffer;
@@ -375,7 +375,7 @@ export default class PKPass extends Bundle {
 				sharedKeysPool,
 				Schemas.Field,
 			),
-			transitType: undefined,
+			transitType: undefined as any,
 		};
 	}
 
@@ -547,7 +547,7 @@ export default class PKPass extends Bundle {
 			this.backFields.push(...backFields);
 
 			if (this.type === "boardingPass") {
-				this.transitType = transitType;
+				this.transitType = transitType as Schemas.TransitType;
 			}
 		}
 	}

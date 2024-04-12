@@ -10,3 +10,4 @@ lib/
 examples/build
 spec/**/*.js
 spec/**/*.js.map
+*.tgz

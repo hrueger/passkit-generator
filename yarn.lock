@@ -808,6 +808,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/node20@npm:^20.1.4":
+  version: 20.1.4
+  resolution: "@tsconfig/node20@npm:20.1.4"
+  checksum: 10c0/239cd6abaceaaffc758e7a9dd3748ec1acfdabd6de28a9a16a3824c21f17ad69a16184870298460345d2fb6f3663d092c21d5b764bef669a179658b4a7eac739
+  languageName: node
+  linkType: hard
+
+"@tsconfig/strictest@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "@tsconfig/strictest@npm:2.0.5"
+  checksum: 10c0/cfc86da2d57f7b4b0827701b132c37a4974284e5c40649656c0e474866dfd8a69f57c6718230d8a8139967e2a95438586b8224c13ab0ff9d3a43eda771c50cc4
+  languageName: node
+  linkType: hard
+
 "@types/babel__core@npm:^7.1.14":
   version: 7.20.5
   resolution: "@types/babel__core@npm:7.20.5"
@@ -846,15 +860,6 @@ __metadata:
   dependencies:
     "@babel/types": "npm:^7.20.7"
   checksum: 10c0/033abcb2f4c084ad33e30c3efaad82161240f351e3c71b6154ed289946b33b363696c0fbd42502b68e4582a87413c418321f40eb1ea863e34fe525641345e05b
-  languageName: node
-  linkType: hard
-
-"@types/do-not-zip@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "@types/do-not-zip@npm:1.0.2"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 10c0/bb9b2278ae8a8fccc03fa1c973d824cf40ad9b7316a3209b4bf4c222468354f934ed25301c37c3f223fcca39f433a3c72ab83c55de8aeee1b2921074141e54c6
   languageName: node
   linkType: hard
 
@@ -1426,13 +1431,6 @@ __metadata:
   version: 29.6.3
   resolution: "diff-sequences@npm:29.6.3"
   checksum: 10c0/32e27ac7dbffdf2fb0eb5a84efd98a9ad084fbabd5ac9abb8757c6770d5320d2acd172830b28c4add29bb873d59420601dfc805ac4064330ce59b1adfd0593b2
-  languageName: node
-  linkType: hard
-
-"do-not-zip@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "do-not-zip@npm:1.0.0"
-  checksum: 10c0/5f5483acc9c6eb4dc37ec0160e6dfb61a95d680ef5c863d12f2a7a7360967224bd3313be980872127367f998d3991db4f69c9f82055b4552e496a562706f16c3
   languageName: node
   linkType: hard
 
@@ -2910,10 +2908,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "passkit-generator@workspace:."
   dependencies:
-    "@types/do-not-zip": "npm:^1.0.0"
+    "@tsconfig/node20": "npm:^20.1.4"
+    "@tsconfig/strictest": "npm:^2.0.5"
     "@types/node": "npm:^16.11.26"
     "@types/node-forge": "npm:^1.0.1"
-    do-not-zip: "npm:^1.0.0"
     jest: "npm:^29.5.0"
     jest-environment-node: "npm:^29.5.0"
     joi: "npm:17.4.2"

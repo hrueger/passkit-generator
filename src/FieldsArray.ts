@@ -1,7 +1,7 @@
-import type PKPass from "./PKPass";
-import * as Schemas from "./schemas";
-import * as Utils from "./utils";
-import * as Messages from "./messages";
+import type { PKPass } from "./PKPass.js";
+import * as Schemas from "./schemas/index.js";
+import * as Utils from "./utils.js";
+import * as Messages from "./messages.js";
 
 /**
  * Class to represent lower-level keys pass fields
@@ -12,7 +12,7 @@ const passInstanceSymbol = Symbol("passInstance");
 const sharedKeysPoolSymbol = Symbol("keysPool");
 const fieldSchemaSymbol = Symbol("fieldSchema");
 
-export default class FieldsArray extends Array<Schemas.Field> {
+export class FieldsArray extends Array<Schemas.Field> {
 	private [passInstanceSymbol]: InstanceType<typeof PKPass>;
 	private [sharedKeysPoolSymbol]: Set<string>;
 
@@ -23,7 +23,7 @@ export default class FieldsArray extends Array<Schemas.Field> {
 		...args: Schemas.Field[]
 	) {
 		super(...args);
-		this[fieldSchemaSymbol] = fieldSchema;
+		(this as any)[fieldSchemaSymbol] = fieldSchema;
 		this[passInstanceSymbol] = passInstance;
 		this[sharedKeysPoolSymbol] = keysPool;
 	}
@@ -78,7 +78,7 @@ function registerWithValidation(
 
 		try {
 			Schemas.assertValidity(
-				instance[fieldSchemaSymbol],
+				(instance as any)[fieldSchemaSymbol],
 				field,
 				Messages.FIELDS.INVALID,
 			);

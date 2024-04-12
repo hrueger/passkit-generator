@@ -1,6 +1,6 @@
 import { Readable, Stream } from "node:stream";
-import * as Messages from "./messages";
-import * as zip from "do-not-zip";
+import * as Messages from "./messages.js";
+import * as zip from "./do-not-zip/index.js";
 
 export const filesSymbol = Symbol("bundleFiles");
 export const freezeSymbol = Symbol("bundleFreeze");
@@ -17,7 +17,7 @@ namespace Mime {
  * it will throw an error.
  */
 
-export default class Bundle {
+export class Bundle {
 	private [filesSymbol]: { [key: string]: Buffer } = {};
 	private [mimeTypeSymbol]: string;
 
