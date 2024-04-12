@@ -41,5 +41,6 @@
 	},
 	"files": [
 		"lib/**/*.+(js|d.ts)!(*.map)"
-	]
+	],
+	"packageManager": "yarn@4.1.1"
 }
