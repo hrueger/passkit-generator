@@ -1,5 +1,5 @@
-import { Stream } from "stream";
-import { Buffer } from "buffer";
+import { Stream } from "node:stream";
+import { Buffer } from "node:buffer";
 import path from "path";
 import FieldsArray from "./FieldsArray";
 import Bundle, { filesSymbol } from "./Bundle";
@@ -621,10 +621,10 @@ export default class PKPass extends Bundle {
 
 		const meetsPersonalizationRequirements = Boolean(
 			this[propsSymbol]["nfc"] &&
-				this[filesSymbol]["personalization.json"] &&
-				fileNames.find((file) =>
-					RegExps.PERSONALIZATION.LOGO.test(file),
-				),
+			this[filesSymbol]["personalization.json"] &&
+			fileNames.find((file) =>
+				RegExps.PERSONALIZATION.LOGO.test(file),
+			),
 		);
 
 		if (!meetsPersonalizationRequirements) {

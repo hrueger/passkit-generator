@@ -1,5 +1,5 @@
 import { EOL } from "os";
-import { Buffer } from "buffer";
+import { Buffer } from "node:buffer";
 
 // ************************************ //
 // *** UTILS FOR PASS.STRINGS FILES *** //
