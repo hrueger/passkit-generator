@@ -1,4 +1,3 @@
-import { EOL } from "os";
 import { Buffer } from "node:buffer";
 
 // ************************************ //
@@ -82,5 +81,5 @@ export function create(translations: { [key: string]: string }): Buffer {
 		stringContents.push(`"${key}" = "${value}";`);
 	}
 
-	return Buffer.from(stringContents.join(EOL));
+	return Buffer.from(stringContents.join("\n"), "utf8");
 }

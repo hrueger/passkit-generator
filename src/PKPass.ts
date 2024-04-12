@@ -1,6 +1,5 @@
 import { Stream } from "node:stream";
 import { Buffer } from "node:buffer";
-import path from "path";
 import FieldsArray from "./FieldsArray";
 import Bundle, { filesSymbol } from "./Bundle";
 import getModelFolderContents from "./getModelFolderContents";
@@ -466,12 +465,6 @@ export default class PKPass extends Bundle {
 			return super.addBuffer(pathName, buffer);
 		}
 
-		/**
-		 * Converting Windows path to Unix path
-		 * @example de.lproj\\icon.png => de.lproj/icon.png
-		 */
-
-		const normalizedPathName = pathName.replace(path.sep, "/");
 
 		/**
 		 * If a new pass.strings file is added, we want to
@@ -481,7 +474,7 @@ export default class PKPass extends Bundle {
 
 		let match: RegExpMatchArray | null;
 
-		if ((match = normalizedPathName.match(RegExps.PASS_STRINGS))) {
+		if ((match = pathName.match(RegExps.PASS_STRINGS))) {
 			const [, lang] = match;
 
 			const parsedTranslations = Strings.parse(buffer).translations;
@@ -495,7 +488,7 @@ export default class PKPass extends Bundle {
 			return;
 		}
 
-		return super.addBuffer(normalizedPathName, buffer);
+		return super.addBuffer(pathName, buffer);
 	}
 
 	/**
